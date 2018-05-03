@@ -11,14 +11,51 @@
 <body>
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand">
-      <img src="img/logo.png" alt="Book shelf logo">
-      Book Shelf
+      <img src="img/logo.png" class="book-logo img-fluid" alt="Book shelf logo">
     </a>
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <button class="btn btn-outline-primary my-2 my-sm-0" data-toggle="modal" data-target="#modal-add-book">Add book</button>
   </nav>
+  <div class="container">
+    <div class="book-catalog row"></div>
+  </div>
+
+  <div class="modal fade" id="modal-add-book" tabindex="-1" role="dialog" aria-labelledby="modal-add-book-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-add-book-label">Add book to library</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="modal-add-book-form">
+            <div class="form-group">
+              <label for="book-title">Title:</label>
+              <input type="text" class="form-control" id="book-title" name="title" placeholder="How to Win Friends and Influence People in the Digital Age">
+            </div>
+            <div class="form-group">
+              <label for="book-author">Author:</label>
+              <input type="text" class="form-control" id="book-author" name="author" placeholder="Dale Carnegie">
+            </div>
+            <div class="form-group">
+              <label for="book-year">Year:</label>
+              <input type="text" class="form-control" id="book-year" name="year" placeholder="2012">
+            </div>
+            <div class="form-group">
+              <label for="book-cover">Cover:</label>
+              <input type="url" class="form-control" id="book-cover" name="cover" aria-describedby="book-cover-help" placeholder="https://images-na.ssl-images-amazon.com/images/I/510J1ZlSJRL._AC_US218_.jpg">
+              <small id="book-cover-help" class="form-text text-muted">Url of cover image.</small>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-outline-primary" data-toggle="modal" id="modal-add-book-btn">Add book</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

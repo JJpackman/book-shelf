@@ -1,14 +1,18 @@
 const path = require('path');
+const webpack = require('webpack');
+
 const HtmlPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
-const webpack = require('webpack');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 const config = {
   context: path.resolve(__dirname, 'src'),
-  entry: './js/app',
+  entry: {
+    bundle: './js/app'
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
@@ -29,6 +33,9 @@ const config = {
   plugins: [
     new HtmlPlugin({
       template: './template.html'
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery'
     }),
     new CleanPlugin(['dist'])
   ]
@@ -67,7 +74,8 @@ module.exports = (env, options) => {
     };
 
     config.plugins.push(
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
+      new CaseSensitivePathsPlugin()
     );
   } else {
     config.plugins.push(
