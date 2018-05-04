@@ -32,20 +32,24 @@
           <form id="modal-add-book-form">
             <div class="form-group">
               <label for="book-title">Title:</label>
-              <input type="text" class="form-control" id="book-title" name="title" placeholder="How to Win Friends and Influence People in the Digital Age">
+              <input type="text" class="form-control" id="book-title" name="title" placeholder="How to Win Friends and Influence People in the Digital Age" required>
+              <div class="invalid-feedback">Provide a book title</div>
             </div>
             <div class="form-group">
               <label for="book-author">Author:</label>
-              <input type="text" class="form-control" id="book-author" name="author" placeholder="Dale Carnegie">
+              <input type="text" class="form-control" id="book-author" name="author" placeholder="Dale Carnegie" required>
+              <div class="invalid-feedback">Provide an author</div>
             </div>
             <div class="form-group">
               <label for="book-year">Year:</label>
-              <input type="text" class="form-control" id="book-year" name="year" placeholder="2012">
+              <input type="text" class="form-control" id="book-year" name="year" placeholder="2012" required>
+              <div class="invalid-feedback">Provide a year of book publishing</div>
             </div>
             <div class="form-group">
               <label for="book-cover">Cover:</label>
-              <input type="url" class="form-control" id="book-cover" name="cover" aria-describedby="book-cover-help" placeholder="https://images-na.ssl-images-amazon.com/images/I/510J1ZlSJRL._AC_US218_.jpg">
+              <input type="url" class="form-control" id="book-cover" name="cover" aria-describedby="book-cover-help" placeholder="https://images-na.ssl-images-amazon.com/images/I/510J1ZlSJRL._AC_US218_.jpg" required>
               <small id="book-cover-help" class="form-text text-muted">Url of cover image.</small>
+              <div class="invalid-feedback">Provide a book cover</div>
             </div>
           </form>
         </div>
